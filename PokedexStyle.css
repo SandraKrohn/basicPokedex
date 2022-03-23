@@ -6,10 +6,6 @@
     -fx-font-size: 30px;
 }
 
-#anchorpane {
-    -fx-background-color: #e82020;
-}
-
 .label {
     -fx-text-fill: #011400;
     -fx-font-family:"courier new";
@@ -20,4 +16,8 @@
 .button {
     -fx-font-family:"courier new";
     -fx-font-weight: bold;
+}
+
+#tableview {
+    -fx-background-color: #a2dba0;
 }

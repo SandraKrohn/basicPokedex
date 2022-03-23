@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@/Pokedex/CSS/PokedexStyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pokedex.Controller.ShowAllController">
+   <children>
+      <TableView fx:id="tablePokemon" prefHeight="200.0" prefWidth="599.0">
+         <columns>
+            <TableColumn fx:id="number" prefWidth="52.79998856782913" text="Number" />
+            <TableColumn fx:id="name" prefWidth="121.60003280639648" text="Name" />
+            <TableColumn fx:id="type1" prefWidth="88.79998779296875" text="Type 1" />
+            <TableColumn fx:id="type2" prefWidth="90.4000244140625" text="Type 2" />
+            <TableColumn fx:id="entry" prefWidth="240.80010986328125" text="Entry" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>
