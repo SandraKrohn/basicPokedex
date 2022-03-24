@@ -1,6 +1,7 @@
 package Pokedex.Model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.TextField;
 
 import java.sql.*;
 
@@ -15,6 +16,7 @@ public class PokedexModel {
         connect();
     }
 
+    // connecting to the database
     public void connect() {
         try {
             connection = DriverManager.getConnection(url, user, password);
@@ -24,6 +26,9 @@ public class PokedexModel {
         }
     }
 
+    // accessing DB and displaying number and name of all implemented Pokemon
+    // ObservableList erbt von ArrayList und ist fuer Tabellen zustaendig
+    // Klasse in Diamond Notation angeben
     public ObservableList<Dex> read() {
         String sql = "SELECT * FROM pokedex;";
         ObservableList<Dex> dexList = FXCollections.observableArrayList();
@@ -33,11 +38,37 @@ public class PokedexModel {
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
-                System.out.println("Number: " + resultSet.getInt("id"));
-                System.out.println("Name: " + resultSet.getString("name"));
-                // System.out.println("Type 1: " + resultSet.getString("type1"));
-                // System.out.println("Type 2: " + resultSet.getString("type2"));
-                // System.out.println("Entry: " + resultSet.getString("entry"));
+                // System.out.println("Number: " + resultSet.getInt("id"));
+                // System.out.println("Name: " + resultSet.getString("name"));
+
+                int number = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String type1 = resultSet.getString("type1");
+                String type2 = resultSet.getString("type2");
+                String entry = resultSet.getString("entry");
+
+                Dex pokemon = new Dex(number, name, type1, type2, entry);
+                dexList.add(pokemon);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return dexList;
+    }
+
+    // search & display of individual Pokemon
+    public ObservableList<Dex> search(String searchName) {
+        System.out.println(searchName);
+        String sql = "CALL searchByName(?)";
+        ObservableList<Dex> dexList = FXCollections.observableArrayList();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, searchName);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                // System.out.println("Name: " + resultSet.getString("name"));
 
                 int number = resultSet.getInt("id");
                 String name = resultSet.getString("name");

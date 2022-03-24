@@ -16,7 +16,7 @@ public class Dex {
         this.entry = entry;
     }
 
-    // getter & setter
+    // getters & setters
     public int getNumber() {
         return number;
     }

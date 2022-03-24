@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class Pokedex extends Application {
+    public static String searchName;
     public static Pokedex instance;
     BorderPane rootLayout;
     Stage primaryStage;
@@ -28,7 +29,7 @@ public class Pokedex extends Application {
 
         primaryStage.setTitle("Pokedex");
         primaryStage.setHeight(800);
-        primaryStage.setWidth(800);
+        primaryStage.setWidth(1000);
         primaryStage.setResizable(false);
 
         setIcon();

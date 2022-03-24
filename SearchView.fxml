@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="pane" prefHeight="400.0" prefWidth="760.0" stylesheets="@/Pokedex/CSS/PokedexStyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pokedex.Controller.SearchController">
+   <children>
+      <TableView id="tableview" fx:id="tablePokedex" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="672.0">
+         <columns>
+            <TableColumn fx:id="number" prefWidth="107.19998472929001" text="Number" />
+            <TableColumn fx:id="name" prefWidth="63.199951171875" text="Name" />
+            <TableColumn fx:id="type1" prefWidth="65.5999755859375" text="Type 1" />
+            <TableColumn fx:id="type2" prefWidth="85.59996032714844" text="Type 2" />
+            <TableColumn fx:id="entry" minWidth="0.0" prefWidth="159.2000732421875" text="Entry" />
+            <TableColumn fx:id="picture" prefWidth="189.60003662109375" text="Picture" />
+         </columns>
+      </TableView>
+      <Button fx:id="buttonBack" layoutX="705.0" layoutY="360.0" mnemonicParsing="false" onAction="#onButtonBackClick" text="Back" />
+   </children>
+</AnchorPane>
