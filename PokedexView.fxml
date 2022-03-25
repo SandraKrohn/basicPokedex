@@ -17,7 +17,6 @@
             <Label fx:id="labelInstruction" layoutX="58.0" layoutY="108.0" text="Enter Pokemon name:" />
             <Button fx:id="buttonShowAll" layoutX="58.0" layoutY="199.0" mnemonicParsing="false" onAction="#onButtonShowAllClick" text="Show all" />
             <Button fx:id="buttonSearch" layoutX="471.0" layoutY="104.0" mnemonicParsing="false" onAction="#onButtonSearchClick" text="Search!" />
-            <Label layoutX="211.0" layoutY="44.0" text="Under Construction (:" />
          </children>
       </AnchorPane>
    </center>

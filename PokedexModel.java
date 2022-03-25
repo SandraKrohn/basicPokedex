@@ -1,7 +1,6 @@
 package Pokedex.Model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.TextField;
 
 import java.sql.*;
 
@@ -27,8 +26,6 @@ public class PokedexModel {
     }
 
     // accessing DB and displaying number and name of all implemented Pokemon
-    // ObservableList erbt von ArrayList und ist fuer Tabellen zustaendig
-    // Klasse in Diamond Notation angeben
     public ObservableList<Dex> read() {
         String sql = "SELECT * FROM pokedex;";
         ObservableList<Dex> dexList = FXCollections.observableArrayList();
@@ -56,8 +53,8 @@ public class PokedexModel {
         return dexList;
     }
 
-    // search & display of individual Pokemon
-    public ObservableList<Dex> search(String searchName) {
+    // search & detailed display of individual Pokemon
+    public ObservableList<Dex> searchList(String searchName) {
         System.out.println(searchName);
         String sql = "CALL searchByName(?)";
         ObservableList<Dex> dexList = FXCollections.observableArrayList();
@@ -83,5 +80,34 @@ public class PokedexModel {
             System.out.println(e.getMessage());
         }
         return dexList;
+    }
+
+    // searching for Pokemon and displaying detailed data
+    public Dex search(String searchName) {
+        System.out.println(searchName);
+        String sql = "CALL searchByName(?)";
+        Dex pokemon = new Dex();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, searchName);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                // System.out.println("Name: " + resultSet.getString("name"));
+
+                int number = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String type1 = resultSet.getString("type1");
+                String type2 = resultSet.getString("type2");
+                String entry = resultSet.getString("entry");
+
+                pokemon = new Dex(number, name, type1, type2, entry);
+                return pokemon;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
 }

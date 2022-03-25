@@ -12,10 +12,9 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class Pokedex extends Application {
-    public static String searchName;
     public static Pokedex instance;
     BorderPane rootLayout;
-    Stage primaryStage;
+    public Stage primaryStage;
 
     public static void run(String[] args) {
         launch();

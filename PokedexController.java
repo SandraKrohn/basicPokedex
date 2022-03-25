@@ -1,16 +1,40 @@
 package Pokedex.Controller;
+import Pokedex.Model.DataModel;
+import Pokedex.Model.Dex;
+import Pokedex.Model.PokedexModel;
 import Pokedex.Pokedex;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+
 import java.io.IOException;
+import java.sql.Connection;
 
 public class PokedexController {
-    // retrieves input from text field and displays Pokemon details
     @FXML
     private TextField textName;
+    PokedexModel pokedexModel = new PokedexModel();
+
+    // retrieves input from text field and displays Pokemon details
     public void onButtonSearchClick() throws IOException {
-        Pokedex.searchName = textName.getText();
-        Pokedex.instance.loadView("SearchView");
+        DataModel.dex = pokedexModel.search(textName.getText());
+
+        // checks if DB contains search item and displays an error notification if not
+        if (DataModel.dex == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Pokedex");
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("/images/pokeball.png"));
+            alert.setHeaderText("Pokemon not found!");
+            alert.setContentText("No results");
+            alert.show();
+        } else {
+            Pokedex.instance.loadView("SearchView");
+        }
     }
 
     // clicking this button shows a list of all implemented Pokemon (number and name)
