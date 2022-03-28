@@ -1,4 +1,5 @@
 package Pokedex.Model;
+import javafx.scene.image.Image;
 
 public class Dex {
     private int number;
@@ -6,14 +7,16 @@ public class Dex {
     private String type1;
     private String type2;
     private String entry;
+    private Image image;
 
     // constructor
-    public Dex(int number, String name, String type1, String type2, String entry) {
+    public Dex(int number, String name, String type1, String type2, String entry, Image image) {
         this.number = number;
         this.name = name;
         this.type1 = type1;
         this.type2 = type2;
         this.entry = entry;
+        this.image = image;
     }
 
     public Dex() {
@@ -58,5 +61,13 @@ public class Dex {
 
     public void setEntry(String entry) {
         this.entry = entry;
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
     }
 }

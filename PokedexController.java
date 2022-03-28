@@ -1,18 +1,15 @@
 package Pokedex.Controller;
 import Pokedex.Model.DataModel;
-import Pokedex.Model.Dex;
 import Pokedex.Model.PokedexModel;
 import Pokedex.Pokedex;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.sql.Connection;
 
 public class PokedexController {
     @FXML
@@ -40,5 +37,13 @@ public class PokedexController {
     // clicking this button shows a list of all implemented Pokemon (number and name)
     public void onButtonShowAllClick() throws IOException {
         Pokedex.instance.loadView("ShowAllView");
+    }
+
+    // binding search button to enter key
+    public void keyListener(KeyEvent keyEvent) throws IOException {
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            onButtonSearchClick();
+            keyEvent.consume();
+        }
     }
 }

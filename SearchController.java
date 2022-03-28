@@ -1,44 +1,45 @@
 package Pokedex.Controller;
 import Pokedex.Model.DataModel;
-import Pokedex.Model.Dex;
-import Pokedex.Model.PokedexModel;
 import Pokedex.Pokedex;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import java.io.IOException;
 
 public class SearchController {
     // creating table for displaying Pokemon details
-    /*
-    public TableView<Dex> tablePokedex;
-    public TableColumn<Dex, Integer> number;
-    public TableColumn<Dex, String> name;
-    public TableColumn<Dex, String> type1;
-    public TableColumn<Dex, String> type2;
-    public TableColumn<Dex, String> entry; */
     public Label labelEntry;
     public Label labelName;
     public Label labelType1;
     public Label labelType2;
     public Label labelNumber;
-    // public TableColumn<Dex, Blob> picture;
+    public ImageView image;
 
-    // list of Pokemon details
+    // list of Pokemon details displayed after search
     public void initialize() {
             labelEntry.setText(DataModel.dex.getEntry());
             labelName.setText(DataModel.dex.getName());
             labelType1.setText(DataModel.dex.getType1());
             labelType2.setText(DataModel.dex.getType2());
             labelNumber.setText(Integer.valueOf(DataModel.dex.getNumber()).toString());
+
+        Image i = DataModel.dex.getImage();
+        image.setImage(i);
     }
 
-    // button for returning to start screen
+    // back-button
     public void onButtonBackClick(ActionEvent actionEvent) throws IOException {
         Pokedex.instance.loadView("PokedexView");
+    }
+
+    // binding back button to backspace key
+    public void keyListener(KeyEvent keyEvent) throws IOException {
+        if (keyEvent.getCode() == KeyCode.BACK_SPACE) {
+            onButtonBackClick(new ActionEvent());
+            keyEvent.consume();
+        }
     }
 }

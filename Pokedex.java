@@ -1,5 +1,4 @@
 package Pokedex;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -7,11 +6,12 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.io.InputStream;
 
 public class Pokedex extends Application {
+    public static final int HEIGHT = 600;
+    public static final int WIDTH = 800;
     public static Pokedex instance;
     BorderPane rootLayout;
     public Stage primaryStage;
@@ -23,12 +23,12 @@ public class Pokedex extends Application {
     // setting stage stats
     @Override
     public void start(Stage primaryStage) throws Exception {
-        this.primaryStage =primaryStage;
+        this.primaryStage = primaryStage;
         instance = this;
 
         primaryStage.setTitle("Pokedex");
-        primaryStage.setHeight(800);
-        primaryStage.setWidth(1000);
+        primaryStage.setHeight(HEIGHT);
+        primaryStage.setWidth(WIDTH);
         primaryStage.setResizable(false);
 
         setIcon();

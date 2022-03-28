@@ -1,7 +1,15 @@
 package Pokedex.Model;
+import Pokedex.Pokedex;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.image.Image;
+import javafx.scene.input.InputEvent;
+import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.*;
 
 public class PokedexModel {
@@ -35,45 +43,14 @@ public class PokedexModel {
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
-                // System.out.println("Number: " + resultSet.getInt("id"));
-                // System.out.println("Name: " + resultSet.getString("name"));
-
-                int number = resultSet.getInt("id");
-                String name = resultSet.getString("name");
+                int number = resultSet.getInt("id");String name = resultSet.getString("name");
                 String type1 = resultSet.getString("type1");
                 String type2 = resultSet.getString("type2");
                 String entry = resultSet.getString("entry");
+                InputStream imageFile = resultSet.getBinaryStream("image");
+                Image image = new Image(imageFile);
 
-                Dex pokemon = new Dex(number, name, type1, type2, entry);
-                dexList.add(pokemon);
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return dexList;
-    }
-
-    // search & detailed display of individual Pokemon
-    public ObservableList<Dex> searchList(String searchName) {
-        System.out.println(searchName);
-        String sql = "CALL searchByName(?)";
-        ObservableList<Dex> dexList = FXCollections.observableArrayList();
-
-        try {
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, searchName);
-            ResultSet resultSet = statement.executeQuery();
-
-            while (resultSet.next()) {
-                // System.out.println("Name: " + resultSet.getString("name"));
-
-                int number = resultSet.getInt("id");
-                String name = resultSet.getString("name");
-                String type1 = resultSet.getString("type1");
-                String type2 = resultSet.getString("type2");
-                String entry = resultSet.getString("entry");
-
-                Dex pokemon = new Dex(number, name, type1, type2, entry);
+                Dex pokemon = new Dex(number, name, type1, type2, entry, image);
                 dexList.add(pokemon);
             }
         } catch (SQLException e) {
@@ -94,15 +71,16 @@ public class PokedexModel {
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                // System.out.println("Name: " + resultSet.getString("name"));
-
                 int number = resultSet.getInt("id");
                 String name = resultSet.getString("name");
                 String type1 = resultSet.getString("type1");
                 String type2 = resultSet.getString("type2");
                 String entry = resultSet.getString("entry");
+                InputStream imageFile = resultSet.getBinaryStream("image");
+                Image image = new Image(imageFile);
+                System.out.println(image.getHeight());
 
-                pokemon = new Dex(number, name, type1, type2, entry);
+                pokemon = new Dex(number, name, type1, type2, entry, image);
                 return pokemon;
             }
         } catch (SQLException e) {
