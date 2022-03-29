@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Pokedex.Controller.StartController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <TextField fx:id="textName" layoutX="276.0" layoutY="104.0" />
+        <Label fx:id="labelInstruction" layoutX="58.0" layoutY="108.0" text="Enter Pokemon name:" />
+        <Button fx:id="buttonShowAll" layoutX="58.0" layoutY="199.0" mnemonicParsing="false" onAction="#onButtonShowAllClick" text="Show all" />
+        <Button fx:id="buttonSearch" defaultButton="true" layoutX="471.0" layoutY="104.0" mnemonicParsing="false" onAction="#onButtonSearchClick" onKeyPressed="#keyListener" text="Search!" />
+    </children>
+
+</AnchorPane>

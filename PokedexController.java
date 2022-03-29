@@ -2,6 +2,7 @@ package Pokedex.Controller;
 import Pokedex.Model.DataModel;
 import Pokedex.Model.PokedexModel;
 import Pokedex.Pokedex;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -12,10 +13,23 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class PokedexController {
+    /*
     @FXML
     private TextField textName;
     PokedexModel pokedexModel = new PokedexModel();
+     */
 
+    public void onMenuExitClick() throws IOException {
+        Pokedex.instance.shutdown();
+    }
+
+    public void onMenuAboutClick(ActionEvent actionEvent) {
+        Pokedex.instance.showAboutBox();
+    }
+
+
+
+    /*
     // retrieves input from text field and displays Pokemon details
     public void onButtonSearchClick() throws IOException {
         DataModel.dex = pokedexModel.search(textName.getText());
@@ -45,5 +59,5 @@ public class PokedexController {
             onButtonSearchClick();
             keyEvent.consume();
         }
-    }
+    } */
 }

@@ -6,6 +6,30 @@
     -fx-font-size: 30px;
 }
 
+#datatitle {
+    -fx-text-fill: #08704a;
+}
+
+#menubar {
+    -fx-background-color: #dfffde;
+}
+
+#menupoint {
+    -fx-background-color: #dfffde;
+}
+
+#menupoint:hover {
+    -fx-background-color: #73db70;
+}
+
+#item {
+    -fx-background-color: #dfffde;
+}
+
+#item:hover {
+    -fx-background-color: #73db70;
+}
+
 .label {
     -fx-text-fill: #011400;
     -fx-font-family:"courier new";
@@ -18,6 +42,6 @@
     -fx-font-weight: bold;
 }
 
-#tableview {
-    -fx-background-color: #a2dba0;
+#table {
+    -fx-background-color: #dfffde;
 }

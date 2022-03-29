@@ -32,7 +32,7 @@ public class SearchController {
 
     // back-button
     public void onButtonBackClick(ActionEvent actionEvent) throws IOException {
-        Pokedex.instance.loadView("PokedexView");
+        Pokedex.instance.loadView("StartView");
     }
 
     // binding back button to backspace key

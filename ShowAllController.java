@@ -28,25 +28,27 @@ public class ShowAllController {
         ObservableList<Dex> dexList = pokedexModel.read();
         tablePokedex.setItems(dexList);
 
+        // switching to detailed data (SearchView) when double-clicking a name
         tablePokedex.setOnMouseClicked(event -> {
-            try {
-                getName();
-            } catch (IOException e) {
-                e.printStackTrace();
+            if (event.getClickCount() == 2) {
+                try {
+                    getName();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
 
     public void getName() throws IOException {
         String name = tablePokedex.getSelectionModel().getSelectedItem().getName();
-        System.out.println(name);
         DataModel.dex = pokedexModel.search(name);
         Pokedex.instance.loadView("SearchView");
     }
 
     // button for returning to start screen
     public void onButtonBackClick(ActionEvent actionEvent) throws IOException {
-        Pokedex.instance.loadView("PokedexView");
+        Pokedex.instance.loadView("StartView");
     }
 
     // binding back button to backspace key

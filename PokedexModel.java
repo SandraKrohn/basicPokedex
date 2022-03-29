@@ -61,7 +61,7 @@ public class PokedexModel {
 
     // searching for Pokemon and displaying detailed data
     public Dex search(String searchName) {
-        System.out.println(searchName);
+        // System.out.println(searchName);
         String sql = "CALL searchByName(?)";
         Dex pokemon = new Dex();
 
@@ -78,7 +78,6 @@ public class PokedexModel {
                 String entry = resultSet.getString("entry");
                 InputStream imageFile = resultSet.getBinaryStream("image");
                 Image image = new Image(imageFile);
-                System.out.println(image.getHeight());
 
                 pokemon = new Dex(number, name, type1, type2, entry, image);
                 return pokemon;
