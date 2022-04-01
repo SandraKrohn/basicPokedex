@@ -15,16 +15,26 @@ public class SearchController {
     public Label labelName;
     public Label labelType1;
     public Label labelType2;
+    public Label labelHeight;
+    public Label labelWeight;
     public Label labelNumber;
     public ImageView image;
 
     // list of Pokemon details displayed after search
     public void initialize() {
-            labelEntry.setText(DataModel.dex.getEntry());
-            labelName.setText(DataModel.dex.getName());
-            labelType1.setText(DataModel.dex.getType1());
+        labelEntry.setText(DataModel.dex.getEntry());
+        labelName.setText(DataModel.dex.getName());
+        labelType1.setText(DataModel.dex.getType1());
+
+        if (DataModel.dex.getType2().equals("")) {
+            labelType2.setText("-");
+        } else {
             labelType2.setText(DataModel.dex.getType2());
-            labelNumber.setText(Integer.valueOf(DataModel.dex.getNumber()).toString());
+        }
+
+        labelHeight.setText(DataModel.dex.getHeight());
+        labelWeight.setText(DataModel.dex.getWeight());
+        labelNumber.setText(Integer.valueOf(DataModel.dex.getNumber()).toString());
 
         Image i = DataModel.dex.getImage();
         image.setImage(i);

@@ -8,15 +8,20 @@
 <AnchorPane id="pane" prefHeight="600.0" prefWidth="800.0" stylesheets="@/Pokedex/CSS/PokedexStyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pokedex.Controller.SearchController">
    <children>
       <Button fx:id="buttonBack" defaultButton="true" layoutX="596.0" layoutY="452.0" mnemonicParsing="false" onAction="#onButtonBackClick" onKeyPressed="#keyListener" text="Back to start page" />
-      <Label fx:id="labelEntry" layoutX="40.0" layoutY="95.0" prefHeight="229.0" prefWidth="340.0" text="Label" wrapText="true" />
-      <Label fx:id="labelName" layoutX="39.0" layoutY="28.0" text="Label" />
-      <Label fx:id="labelType1" layoutX="156.0" layoutY="28.0" text="Label" />
+      <Label fx:id="labelEntry" layoutX="8.0" layoutY="132.0" prefHeight="229.0" prefWidth="340.0" text="Label" wrapText="true" />
+      <Label fx:id="labelName" layoutX="8.0" layoutY="28.0" text="Label" />
+      <Label fx:id="labelType1" layoutX="140.0" layoutY="28.0" text="Label" />
       <Label fx:id="labelType2" layoutX="268.0" layoutY="28.0" text="Label" />
-      <Label fx:id="labelNumber" layoutX="112.0" layoutY="74.0" text="Label" />
-      <Label id="datatitle" fx:id="labelSearchName" layoutX="39.0" layoutY="6.0" text="Name" />
-      <Label id="datatitle" fx:id="labelSearchType1" layoutX="156.0" layoutY="6.0" text="Type 1" />
+      <Label fx:id="labelNumber" layoutX="8.0" layoutY="95.0" text="Label" />
+      <Label fx:id="labelHeight" layoutX="140.0" layoutY="95.0" text="Label" />
+      <Label id="datatitle" fx:id="labelSearchName" layoutX="8.0" layoutY="6.0" text="Name" />
+      <Label id="datatitle" fx:id="labelSearchType1" layoutX="140.0" layoutY="6.0" text="Type 1" />
       <Label id="datatitle" fx:id="labelSearchType2" layoutX="268.0" layoutY="6.0" text="Type 2" />
-      <Label id="datatitle" fx:id="labelSearchNumber" layoutX="39.0" layoutY="74.0" text="Number" />
-      <ImageView fx:id="image" fitHeight="392.0" fitWidth="328.0" layoutX="400.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true" />
+      <Label id="datatitle" fx:id="labelSearchNumber" layoutX="8.0" layoutY="74.0" text="Number" />
+      <Label id="datatitle" fx:id="labelSearchHeight" layoutX="140.0" layoutY="74.0" text="Height" />
+      <Label id="datatitle" fx:id="labelSearchWeight" layoutX="267.0" layoutY="74.0" text="Weight" />
+      <Label fx:id="labelWeight" layoutX="268.0" layoutY="95.0" text="Label" />
+      <ImageView fx:id="image" fitHeight="329.0" fitWidth="254.0" layoutX="452.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true" />
+
    </children>
 </AnchorPane>

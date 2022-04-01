@@ -82,7 +82,7 @@ public class Pokedex extends Application {
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
         stage.getIcons().add(new Image("/images/pokeball.png"));
         alert.setHeaderText("App created by S. K., March 2022");
-        alert.setContentText("Disclaimer: Pokemon doesn't belong to me, I'm just borrowing a few.");
+        alert.setContentText("None of the Pokemon belong to me, I'm just borrowing a few.");
         alert.show();
     }
 }

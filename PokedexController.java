@@ -13,12 +13,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class PokedexController {
-    /*
-    @FXML
-    private TextField textName;
-    PokedexModel pokedexModel = new PokedexModel();
-     */
-
     public void onMenuExitClick() throws IOException {
         Pokedex.instance.shutdown();
     }
@@ -26,38 +20,4 @@ public class PokedexController {
     public void onMenuAboutClick(ActionEvent actionEvent) {
         Pokedex.instance.showAboutBox();
     }
-
-
-
-    /*
-    // retrieves input from text field and displays Pokemon details
-    public void onButtonSearchClick() throws IOException {
-        DataModel.dex = pokedexModel.search(textName.getText());
-
-        // checks if DB contains search item and displays an error notification if not
-        if (DataModel.dex == null) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Pokedex");
-            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-            stage.getIcons().add(new Image("/images/pokeball.png"));
-            alert.setHeaderText("Pokemon not found!");
-            alert.setContentText("No results");
-            alert.show();
-        } else {
-            Pokedex.instance.loadView("SearchView");
-        }
-    }
-
-    // clicking this button shows a list of all implemented Pokemon (number and name)
-    public void onButtonShowAllClick() throws IOException {
-        Pokedex.instance.loadView("ShowAllView");
-    }
-
-    // binding search button to enter key
-    public void keyListener(KeyEvent keyEvent) throws IOException {
-        if (keyEvent.getCode() == KeyCode.ENTER) {
-            onButtonSearchClick();
-            keyEvent.consume();
-        }
-    } */
 }

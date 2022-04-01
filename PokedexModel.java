@@ -47,10 +47,12 @@ public class PokedexModel {
                 String type1 = resultSet.getString("type1");
                 String type2 = resultSet.getString("type2");
                 String entry = resultSet.getString("entry");
+                String height = resultSet.getString("height");
+                String weight = resultSet.getString("weight");
                 InputStream imageFile = resultSet.getBinaryStream("image");
                 Image image = new Image(imageFile);
 
-                Dex pokemon = new Dex(number, name, type1, type2, entry, image);
+                Dex pokemon = new Dex(number, name, type1, type2, height, weight, entry, image);
                 dexList.add(pokemon);
             }
         } catch (SQLException e) {
@@ -61,7 +63,6 @@ public class PokedexModel {
 
     // searching for Pokemon and displaying detailed data
     public Dex search(String searchName) {
-        // System.out.println(searchName);
         String sql = "CALL searchByName(?)";
         Dex pokemon = new Dex();
 
@@ -75,11 +76,13 @@ public class PokedexModel {
                 String name = resultSet.getString("name");
                 String type1 = resultSet.getString("type1");
                 String type2 = resultSet.getString("type2");
+                String height = resultSet.getString("height");
+                String weight = resultSet.getString("weight");
                 String entry = resultSet.getString("entry");
                 InputStream imageFile = resultSet.getBinaryStream("image");
                 Image image = new Image(imageFile);
 
-                pokemon = new Dex(number, name, type1, type2, entry, image);
+                pokemon = new Dex(number, name, type1, type2, entry, height, weight, image);
                 return pokemon;
             }
         } catch (SQLException e) {

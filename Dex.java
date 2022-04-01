@@ -7,15 +7,19 @@ public class Dex {
     private String type1;
     private String type2;
     private String entry;
+    private String height;
+    private String weight;
     private Image image;
 
     // constructor
-    public Dex(int number, String name, String type1, String type2, String entry, Image image) {
+    public Dex(int number, String name, String type1, String type2, String entry, String height, String weight, Image image) {
         this.number = number;
         this.name = name;
         this.type1 = type1;
         this.type2 = type2;
         this.entry = entry;
+        this.height = height;
+        this.weight = weight;
         this.image = image;
     }
 
@@ -69,5 +73,21 @@ public class Dex {
 
     public void setImage(Image image) {
         this.image = image;
+    }
+
+    public String getHeight() {
+        return height;
+    }
+
+    public void setHeight(String height) {
+        this.height = height;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
     }
 }
